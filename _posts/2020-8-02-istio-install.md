@@ -27,9 +27,10 @@ this will install the IstioOperator CRD and install the `istio-operator` control
 inside of a new `istio-operator` namespace. This controller will look for any IstioOperator
 resources and will install Istio if it finds one.
 
-```bash
+{% highlight bash linenos %}
 istioctl operator init
-```
+{% endhighlight %}
+
 
 After installing the CRD and controller, you can define and apply an IstioOperator
 Custom Resource (CR) to specify exactly what Istio components you want installed. 
@@ -47,9 +48,9 @@ are ignored.
 To install Istio using this approach, simply run the following command. This will install
 istio into the `istio-system` namespace. 
 
-```bash
+{% highlight bash linenos %}
 istioctl install
-```
+{% endhighlight %}
 
 ### Helm install method (Removed)
 
@@ -80,13 +81,13 @@ First I want to demo the simple use-case from the docs to demo the simplest use 
 Create the istio-system namespace. This is where Istio will be installed when the custom
 resource is created.
 
-```bash
+{% highlight bash linenos %}
 kubectl create ns istio-system
-```
+{% endhighlight %}
 
 Then create and apply the yaml.
 
-```yaml
+{% highlight yaml linenos %}
 # filename: istio-simple.yaml
 apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
@@ -95,11 +96,11 @@ metadata:
   name: simple-istio
 spec:
   profile: default
-```
+{% endhighlight %}
 
-```bash
+{% highlight bash linenos %}
 kubectl apply -f istio-system.yaml
-```
+{% endhighlight %}
 
 Once you apply this resource, it will take several minutes for the controller to recognize
 and start installing all of the Istio components. Try running `kubectl get po -n istio-system`
@@ -107,9 +108,9 @@ to monitor the installation progress.
 
 If you do not see any change, tail the logs in the operator pod.
 
-```bash
+{% highlight bash linenos %}
 kubectl logs -f -n istio-operator -l name=istio-operator
-```
+{% endhighlight %}
 
 ## Configuring the operator
 
@@ -121,7 +122,7 @@ labels and annotations, and lots of other properties associated with those compo
 
 For example:
 
-```yaml
+{% highlight yaml linenos %}
 apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
 metadata:
@@ -162,7 +163,7 @@ spec:
     # enable the grafana addon
     grafana:
       enabled: true
-```
+{% endhighlight %}
 
 However, the api documentation does not detail how to configure individual settings 
 specific to given components.
@@ -173,7 +174,7 @@ attribute. The available values that you can set can be found in the
 of the source code. Checkout the values file [here](https://github.com/istio/istio/blob/1.6.7/manifests/charts/global.yaml).
 
 
-```yaml
+{% highlight yaml linenos %}
 apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
 metadata:
@@ -183,14 +184,14 @@ spec:
   ...
   values:
     ...
-```
+{% endhighlight %}
 
 You can find some examples of IstioOperators [here](https://github.com/istio/istio/tree/c71f6b45ca24e5d5aec01e7f5685245955f1c5b0/operator/cmd/mesh/testdata/manifest-generate/data-snapshot/profiles).
 
 Here is a full example.
 
 
-```yaml
+{% highlight yaml linenos %}
 apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
 metadata:
@@ -269,4 +270,4 @@ spec:
           requests:
             cpu: '100m'
             memory: '100M'
-```
+{% endhighlight %}
