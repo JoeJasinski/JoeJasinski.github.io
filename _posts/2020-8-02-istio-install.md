@@ -2,7 +2,7 @@
 layout: post
 title: "Istio: IstioOperator Install and Use"
 ---
-# Istio Operator
+# Istio Operator Basic Use
 
 The Istio community has been in the process of changing its install procedure for a 
 number of releases. As of Istio 1.6, the IstioOperator has graduated to 
@@ -186,6 +186,8 @@ spec:
     ...
 {% endhighlight %}
 
+## Examples
+
 You can find some examples of IstioOperators [here](https://github.com/istio/istio/tree/c71f6b45ca24e5d5aec01e7f5685245955f1c5b0/operator/cmd/mesh/testdata/manifest-generate/data-snapshot/profiles).
 
 Here is a full example.
@@ -271,3 +273,8 @@ spec:
             cpu: '100m'
             memory: '100M'
 {% endhighlight %}
+
+## Conclusion
+
+I'm still learning about how the IstioOperator works, but this is what I have gathered
+so far. 
