@@ -5,7 +5,6 @@ date: 2020-08-02
 categories: kubernetes istio
 excerpt_separator: <!--more-->
 ---
-# Istio Operator Basic Use
 
 The Istio community has been in the process of changing its install procedure for a 
 number of releases. As of Istio 1.6, the IstioOperator has graduated to 
