@@ -1,6 +1,9 @@
 ---
 layout: post
 title: "Istio: IstioOperator Install and Use"
+date: 2020-08-02
+categories: kubernetes istio
+excerpt_separator: <!--more-->
 ---
 # Istio Operator Basic Use
 
@@ -10,6 +13,7 @@ number of releases. As of Istio 1.6, the IstioOperator has graduated to
 of the preferred install methods. The [documentation](https://istio.io/latest/docs/setup/install/standalone-operator/) for
 the IstioOperator left me with a lot of questions, so I am writing here to try to brain
 dump what I have found out about how it works.
+<!--more-->
 
 ## Install methods
 
